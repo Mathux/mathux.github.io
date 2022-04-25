@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>TEMOS</title>
+  <meta name="description" content="TEMOS: Text to motions">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link href="style.css" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://imagine.enpc.fr/~petrovim/temos" />
+  <meta property="og:title" content="TEMOS" />
+  <meta property="og:description" content="Generating diverse human motions from textual descriptions" />
+  <meta property="og:image" content="https://imagine.enpc.fr/~petrovim/temos/images/teaser.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1920" />
+  <meta property="og:image:height" content="1024" />
+  <meta property="og:image:alt" content="Teaser" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VL12GQY0EE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-VL12GQY0EE');
+  </script>
+  <!-- <script src="syncvideo.js"></script> -->
+</head>
+<body>
+
+<div class="container" style="text-align:center; padding:2rem 15px">
+  <div class="row" style="text-align:center">
+    <!-- <h1 style="font-family: 'Shadows Into Light', cursive; textsize=2em">TEMOS: </h1> -->
+    <h1>TEMOS: Generating diverse human motions from textual descriptions</h1>
+    <!-- <h4>Conference X</h4> style="font-family: 'Shadows Into Light', cursive; -->
+  </div>
+  <div class="row" style="text-align:center">
+    <h4>
+      <a href="https://imagine.enpc.fr/~petrovim"><nobr>Mathis Petrovich</nobr></a> &emsp;
+      <a href="https://ps.is.mpg.de/~black"><nobr>Michael J. Black</nobr></a> &emsp;
+      <a href="https://imagine.enpc.fr/~varolg"><nobr>G&uumll Varol</nobr></a>
+      </h4>
+  </div>
+  <div class="row" style="text-align:center">
+    <h4>
+      <!-- <a href="http://iccv2021.thecvf.com/home"><nobr>ICCV 2021</nobr></a> &emsp; -->
+      arXiv 2022 <!-- <a href="http://iccv2021.thecvf.com/home"><nobr>ICCV 2021</nobr></a> &emsp; -->
+    </h4>
+  </div>
+</div>
+
+<div class="container" style="text-align:center; padding:1rem">
+  <div class="row">
+    <h3 style="text-align:center; padding-top:1rem">
+      <img src="images/teaser.png" alt="teaser.png" class="text-center" style="width: 100%; max-width: 1000px;" >
+    </h3>
+  </div>
+
+  <div class="row">
+    <h3 style="text-align:center; padding-top:1rem">
+      Paper <!-- <a href="https://arxiv.org/pdf/2104.05670.pdf">Paper</a> -->
+      &emsp;|&emsp;
+      Code <!-- <a href="https://github.com/Mathux/TEMOS">Code</a> -->
+      &emsp;|&emsp;
+      Video <!-- <a href="https://youtu.be/De_1NoCXlEw">Video</a> -->
+      &emsp;|&emsp;
+      Poster <!-- <a href="poster.pdf">Poster</a> -->
+      &emsp;|&emsp;
+      BibTex <!-- <a href="temos.bib">BibTeX</a> -->
+    </h3>
+  </div>
+</div>
+
+<!--
+  <a href="https://arxiv.org/pdf/2104.05670.pdf">
+    PDF  <i class="fa fa-file-pdf-o" style="font-size:48px;"></i>
+  </a>
+  &emsp;|&emsp;
+  <a href="https://arxiv.org/abs/2104.05670">
+    arXiv <i class="ai ai-arxiv" style="font-size:48px;" ></i>
+  </a>
+  &emsp;|&emsp;
+  <a href="https://github.com/Mathux/TEMOS">
+    Code <i class="fa fa-github" style="font-size:48px;"></i>
+  </a>
+  &emsp;|&emsp;
+  <a href="https://youtu.be/De_1NoCXlEw">
+    Video <i class="fa fa-video-camera" style="font-size:48px;"></i>
+  </a>
+</div>
+-->
+
+<div class="container" style="padding-bottom:5rem">
+  <h3 class="colored">Abstract</h3>
+  <hr/>
+  <p> We address the problem of generating diverse 3D human motions from textual descriptions.
+    This challenging task requires joint modeling of both modalities: understanding and extracting useful human-centric information from the text,
+    and then generating plausible and realistic sequences of human poses.
+    In contrast to most previous work which focuses on generating a single, deterministic, motion from a textual description,
+    we design a variational approach that can produce <em>multiple</em> diverse human motions.
+    We propose TEMOS, a text-conditioned generative model leveraging variational autoencoder (VAE) training with human motion data,
+    in combination with a text encoder that produces distribution parameters compatible with the VAE latent space.
+    We show that TEMOS framework can produce both skeleton-based animations as in prior work, as well more expressive SMPL body motions.
+    We evaluate our approach on the KIT Motion-Language benchmark and, despite being relatively straightforward,
+    demonstrate significant improvements over the state of the art. Code and models will be available.
+  </p>
+
+  <h3 class="colored">Video</h3>
+  <hr/>
+  <center>
+    <div class="embed-responsive embed-responsive-16by9 roundborder"  style="text-align:center">
+      <iframe src="videos/TEMOS-arXiv.mp4" title="TEMOS"
+	      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <!--
+<div class="embed-responsive embed-responsive-16by9 roundborder"  style="text-align:center">
+      <iframe src="https://www.youtube.com/embed/De_1NoCXlEw" title="TEMOS"
+	      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+-->
+  </center>
+
+  <h3 class="colored">Bibtex</h3>
+  <hr/>
+  <p>
+    If you find this project useful for your research, please cite
+  </p>
+  <div class="card">
+    <div class="card-block">
+      <pre class="card-text clickselect">
+@article{petrovich22temos,
+  title     = {TEMOS: Generating diverse human motions from textual descriptions},
+  author    = {Petrovich, Mathis and Black, Michael J. and Varol, G{\"u}l},
+  journal = {arXiv},
+  month     = {April},
+  year      = {2022}
+}</pre>
+    </div>
+  </div> <!--" -->
+
+  <h3 class="colored">Acknowledgements</h3>
+  <hr/>
+  <p>
+This work was granted access to the HPC resources of IDRIS under the allocation 2021-AD011012129R1 made by GENCI.
+The authors would like to thank Monika Wysoczanska, Georgy Ponimatkin, Romain Loiseau and Lucas Ventura for their feedbacks
+and Anindita Ghosh for her help with details of her ICCV 2021 paper.
+  </p>
+
+  <h3 class="colored">Copyright Notice</h3>
+  <hr/>
+The documents contained in these directories are included by the contributing authors as a means to ensure timely dissemination of scholarly and technical work on a non-commercial basis. Copyright and all rights therein are maintained by the authors or by other copyright holders, notwithstanding that they have offered their works here electronically. It is understood that all persons copying this information will adhere to the terms and constraints invoked by each author's copyright.
+</div>
+
+</body>
+</html>
