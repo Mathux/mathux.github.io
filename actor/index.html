@@ -1,355 +1,355 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>ACTOR</title>
-  <meta name="description" content="Action-Conditioned 3D Human Motion Synthesis with Transformer VAE">
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
-  <meta charset="utf-8">
+  <head>
+    <title>ACTOR</title>
+    <meta name="description" content="Action-Conditioned 3D Human Motion Synthesis with Transformer VAE">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta charset="utf-8">
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link href="style.css" rel="stylesheet">
 
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://mathis.petrovich.fr/actor/" />
-  <meta property="og:title" content="ACTOR" />
-  <meta property="og:description" content="Action-Conditioned 3D Human Motion Synthesis with Transformer VAE" />
-  <meta property="og:image" content="https://mathis.petrovich.fr/actor/images/small_bigteaser_white.png" />
-  <meta property="og:image:type" content="image/png" />
-  <meta property="og:image:width" content="1920" />
-  <meta property="og:image:height" content="1177" />
-  <meta property="og:image:alt" content="Teaser" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mathis.petrovich.fr/actor/" />
+    <meta property="og:title" content="ACTOR" />
+    <meta property="og:description" content="Action-Conditioned 3D Human Motion Synthesis with Transformer VAE" />
+    <meta property="og:image" content="https://mathis.petrovich.fr/actor/images/small_bigteaser_white.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1920" />
+    <meta property="og:image:height" content="1177" />
+    <meta property="og:image:alt" content="Teaser" />
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VL12GQY0EE"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VL12GQY0EE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-    gtag('config', 'G-VL12GQY0EE');
-  </script>
-  <!-- <script src="syncvideo.js"></script> -->
-</head>
-<body>
+      gtag('config', 'G-VL12GQY0EE');
+    </script>
+    <!-- <script src="syncvideo.js"></script> -->
+  </head>
+  <body>
 
-<div class="container" style="text-align:center; padding:2rem 15px">
-  <div class="row" style="text-align:center">
-    <h1>Action-Conditioned 3D Human Motion Synthesis <br> with Transformer VAE</h1>
-    <!-- <h4>Conference X</h4> -->
-  </div>
-  <div class="row" style="text-align:center">
-    <h4>
-      <a href="../"><nobr>Mathis Petrovich</nobr></a> &emsp;
-      <a href="https://ps.is.mpg.de/~black" target="_blank"><nobr>Michael J. Black</nobr></a> &emsp;
-      <a href="https://imagine.enpc.fr/~varolg" target="_blank"><nobr>G&uumll Varol</nobr></a>
-      </h4>
-  </div>
-  <div class="row" style="text-align:center">
-    <h4>
-      <a href="http://iccv2021.thecvf.com/home" target="_blank"><nobr>ICCV 2021</nobr></a> &emsp;
-    </h4>
-  </div>
-</div>
-
-<div class="container" style="text-align:center; padding:1rem">
-  <div class="row">
-    <h3 style="text-align:center; padding-top:1rem">
-      <img src="images/bigteaser.png" alt="teaser.png" class="text-center" style="width: 100%; max-width: 1000px;" >
-    </h3>
-  </div>
-
-  <div class="row">
-    <h3 style="text-align:center; padding-top:1rem">
-      <a href="https://arxiv.org/pdf/2104.05670.pdf">Paper</a>
-      &emsp;|&emsp;
-      <a href="https://github.com/Mathux/ACTOR">Code</a>
-      &emsp;|&emsp;
-      <a href="https://youtu.be/De_1NoCXlEw">Video</a>
-      &emsp;|&emsp;
-      <a href="poster.pdf">Poster</a>
-      &emsp;|&emsp;
-    <a href="actor.bib">BibTeX</a>
-    </h3>
-  </div>
-</div>
-
-<div class="container" style="padding-bottom:5rem">
-  <h3 class="colored">Abstract</h3>
-  <hr/>
-  <p> We tackle the problem of action-conditioned generation
-of realistic and diverse human motion sequences.
-In contrast to methods that complete, or extend, motion sequences,
-this task does not require an initial pose or sequence. Here
-we learn an action-aware latent representation for human
-motions by training a generative variational autoencoder
-(VAE). By sampling from this latent space and querying
-a certain duration through a series of positional encodings,
-we synthesize variable-length motion sequences conditioned
-on a categorical action. Specifically, we design
-a Transformer-based architecture, ACTOR, for encoding
-and decoding a sequence of parametric SMPL human body
-models estimated from action recognition datasets.
-We evaluate our approach on the NTU RGB+D, HumanAct12 and
-UESTC datasets and show improvements over the state of
-the art. Furthermore, we present two use cases:
-improving action recognition through adding our synthesized data
-to training, and motion denoising. Code and models are
-available on our project page.
-  </p>
-
-  <h3 class="colored">Video</h3>
-  <hr/>
-  <center>
-    <!-- <video width="900" height="540" class="roundborder" src="videos/actor.mp4" controls="controls">ACTOR VIDEO</video> -->
-    <div class="embed-responsive embed-responsive-16by9 roundborder"  style="text-align:center">
-      <iframe src="https://www.youtube.com/embed/De_1NoCXlEw" title="ACTOR"
-	      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="container" style="text-align:center; padding:2rem 15px">
+      <div class="row" style="text-align:center">
+	<h1>Action-Conditioned 3D Human Motion Synthesis <br> with Transformer VAE</h1>
+	<!-- <h4>Conference X</h4> -->
+      </div>
+      <div class="row" style="text-align:center">
+	<h4>
+	  <a href="../"><nobr>Mathis Petrovich</nobr></a> &emsp;
+	  <a href="https://ps.is.mpg.de/~black" target="_blank"><nobr>Michael J. Black</nobr></a> &emsp;
+	  <a href="https://imagine.enpc.fr/~varolg" target="_blank"><nobr>G&uumll Varol</nobr></a>
+	</h4>
+      </div>
+      <div class="row" style="text-align:center">
+	<h4>
+	  <a href="http://iccv2021.thecvf.com/home" target="_blank"><nobr>ICCV 2021</nobr></a> &emsp;
+	</h4>
+      </div>
     </div>
 
-  </center>
+    <div class="container" style="text-align:center; padding:1rem">
+      <div class="row">
+	<h3 style="text-align:center; padding-top:1rem">
+	  <img src="images/bigteaser.png" alt="teaser.png" class="text-center" style="width: 100%; max-width: 1000px;" >
+	</h3>
+      </div>
 
-  <h3 class="colored">Approach</h3>
-  <hr/>
-  <img src="images/pipeline.png" alt="pipeline.png" class="center" style="width: 100%; max-width: 1000px">
+      <div class="row">
+	<h3 style="text-align:center; padding-top:1rem">
+	  <a href="https://arxiv.org/pdf/2104.05670.pdf">Paper</a>
+	  &emsp;|&emsp;
+	  <a href="https://github.com/Mathux/ACTOR">Code</a>
+	  &emsp;|&emsp;
+	  <a href="https://youtu.be/De_1NoCXlEw">Video</a>
+	  &emsp;|&emsp;
+	  <a href="poster.pdf">Poster</a>
+	  &emsp;|&emsp;
+	  <a href="actor.bib">BibTeX</a>
+	</h3>
+      </div>
+    </div>
 
-  <div class="row" style="">
-    <div class="col-xs-6">
-      <b> <u>Encoder</u></b>: Given a sequence of body poses
-      <img src="https://latex.codecogs.com/svg.latex?{P_1, \ldots, P_T}" alt="P_1, ..., P_T" border="0" onload="this.style.height=(this.height/8+'ex')">
-      and an action label
-      <img src="https://latex.codecogs.com/svg.latex?{a}" alt="a" border="0" onload="this.style.height=(this.height/8+'ex')">
-      , the encoder outputs
-      distribution parameters on which we define a KL loss
-      <img src="https://latex.codecogs.com/svg.latex?{\mathcal{L}_{KL}}" alt="\mathcal{L}_{KL}" border="0" onload="this.style.height=(this.height/8+'ex')">
-      .
-      We use extra learnable tokens per action (
-      <img src="https://latex.codecogs.com/svg.latex?{\mu_{a}^{token}}" alt="\mu_{a}^{token}" border="0" onload="this.style.height=(this.height/8+'ex')">
-      and
-      <img src="https://latex.codecogs.com/svg.latex?{\Sigma_{a}^{token}}" alt="\Sigma_{a}^{token}" border="0" onload="this.style.height=(this.height/8+'ex')">
-      )
-      as a way to
-      obtain
-      <img src="https://latex.codecogs.com/svg.latex?{\mu}" alt="\mu" border="0" onload="this.style.height=(this.height/8+'ex')">
-      and
-      <img src="https://latex.codecogs.com/svg.latex?{\Sigma}" alt="\Sigma" border="0" onload="this.style.height=(this.height/8+'ex')">
-      from the Transformer encoder.
-      We sample from
-      <img src="https://latex.codecogs.com/svg.latex?{\mu}" alt="\mu" border="0" onload="this.style.height=(this.height/8+'ex')">
-      and
-      <img src="https://latex.codecogs.com/svg.latex?{\Sigma}" alt="\Sigma" border="0" onload="this.style.height=(this.height/8+'ex')">
-      the latent representation
-      <img src="https://latex.codecogs.com/svg.latex?{z \in \mathbf{M}}" alt="z \in \mathbf{M}" border="0" onload="this.style.height=(this.height/8+'ex')">
-      (the encoded input).
-    </div>
-    <div class="col-xs-6">
-      <b><u>Decoder</u></b>: It takes the latent vector
-      <img src="https://latex.codecogs.com/svg.latex?{z}" alt="z" border="0" onload="this.style.height=(this.height/8+'ex')">, an action label
-      <img src="https://latex.codecogs.com/svg.latex?{a}" alt="a" border="0" onload="this.style.height=(this.height/8+'ex')">, and a duration
-      <img src="https://latex.codecogs.com/svg.latex?{T}" alt="T" border="0" onload="this.style.height=(this.height/8+'ex')">
-      as input.
-      The action determines the learnable
-      <img src="https://latex.codecogs.com/svg.latex?{b_{a}^{token}}" alt="b_{a}^{token}" border="0" onload="this.style.height=(this.height/8+'ex')">
-      additive token,
-      and the duration determines the number of positional encodings (PE) to input to the decoder.
-      The decoder outputs the whole sequence
-      <img src="https://latex.codecogs.com/svg.latex?{\widehat{P}_1, \ldots, \widehat{P}_T}" alt="\widehat{P}_1, \ldots, \widehat{P}_T" border="0" onload="this.style.height=(this.height/8+'ex')">
-      against which
-      the reconstruction loss
-      <img src="https://latex.codecogs.com/svg.latex?{\mathcal{L}_{P}}" alt="\mathcal{L}_{P}" border="0" onload="this.style.height=(this.height/8+'ex')">
-      is computed.
-      In addition, we compute vertices with a differentiable SMPL layer
-      to define a vertex loss
-      <img src="https://latex.codecogs.com/svg.latex?{\mathcal{L}_{V}}" alt="\mathcal{L}_{V}" border="0" onload="this.style.height=(this.height/8+'ex')">
-      .
-    </div>
-  </div>
+    <div class="container" style="padding-bottom:5rem">
+      <h3 class="colored">Abstract</h3>
+      <hr/>
+      <p> We tackle the problem of action-conditioned generation
+	of realistic and diverse human motion sequences.
+	In contrast to methods that complete, or extend, motion sequences,
+	this task does not require an initial pose or sequence. Here
+	we learn an action-aware latent representation for human
+	motions by training a generative variational autoencoder
+	(VAE). By sampling from this latent space and querying
+	a certain duration through a series of positional encodings,
+	we synthesize variable-length motion sequences conditioned
+	on a categorical action. Specifically, we design
+	a Transformer-based architecture, ACTOR, for encoding
+	and decoding a sequence of parametric SMPL human body
+	models estimated from action recognition datasets.
+	We evaluate our approach on the NTU RGB+D, HumanAct12 and
+	UESTC datasets and show improvements over the state of
+	the art. Furthermore, we present two use cases:
+	improving action recognition through adding our synthesized data
+	to training, and motion denoising. Code and models are
+	available on our project page.
+      </p>
 
-  <div style="margin-top: 2rem; margin-bottom:3rem;">
-    <b><u>Generator</u></b>: The decoder alone is simply the generator, where the encoded input <img src="https://latex.codecogs.com/svg.latex?{z}" alt="z" border="0" onload="this.style.height=(this.height/8+'ex')"> is replaced by a vector randomly sampled from a Gaussian distribution.
-  </div>
+      <h3 class="colored">Video</h3>
+      <hr/>
+      <center>
+	<!-- <video width="900" height="540" class="roundborder" src="videos/actor.mp4" controls="controls">ACTOR VIDEO</video> -->
+	<div class="embed-responsive embed-responsive-16by9 roundborder"  style="text-align:center">
+	  <iframe src="https://www.youtube.com/embed/De_1NoCXlEw" title="ACTOR"
+		  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	</div>
 
-  <h3 class="colored">Visual results</h3>
-  <hr/>
-  <h4 style="text-align: center;margin-top:1em;margin-bottom:1em"><b>Generated motions</b></h4>
-  <div class="row">
-    <div class="col-xs-2">
-      <video autoplay loop playsinline muted width="450" height="270" src="visuals/pickup.mp4"></video>
-    </div>
-    <div class="col-xs-2">
-      <video autoplay loop playsinline muted width="450" height="270" src="visuals/raising_arms.mp4"></video>
-    </div>
-    <div class="col-xs-2">
-      <video autoplay loop playsinline muted width="450" height="270" src="visuals/torso_stretching.mp4"></video>
-    </div>
-    <div class="col-xs-2">
-      <video autoplay loop playsinline muted width="450" height="270" src="visuals/bending.mp4"></video>
-    </div>
-    <div class="col-xs-2">
-      <video autoplay loop playsinline muted width="450" height="270" src="visuals/knee_raising.mp4"></video>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-2">
-      <video autoplay loop playsinline muted width="450" height="270" src="visuals/salute.mp4"></video>
-    </div>
-    <div class="col-xs-2">
-      <video autoplay loop playsinline muted width="450" height="270" src="visuals/high_knee_running.mp4"></video>
-    </div>
-    <div class="col-xs-2">
-      <video autoplay loop playsinline muted width="450" height="270" src="visuals/kicking.mp4"></video>
-    </div>
-    <div class="col-xs-2">
-      <video autoplay loop playsinline muted width="450" height="270" src="visuals/upper_stretching.mp4"></video>
-    </div>
-    <div class="col-xs-2">
-      <video autoplay loop playsinline muted width="450" height="270" src="visuals/jumping_jacks.mp4"></video>
-    </div>
-  </div>
+      </center>
 
-  <p style="margin-top:2em">
-    Please refer to the video for more examples and see other experiments (different durations, interpolation in latent space, loss ablation).
-  </p>
+      <h3 class="colored">Approach</h3>
+      <hr/>
+      <img src="images/pipeline.png" alt="pipeline.png" class="center" style="width: 100%; max-width: 1000px">
 
-  <!--
-  <h4 style="text-align: center;margin-top:2em;margin-bottom:2em"><u>Smoothing real data</u></h4>
-  <div class="row" style="">
-    <div class="col-xs-2" style="margin-top:7em;">
-      <h4>Real data</h4>
-    </div>
-    <div class="col-xs-2">
-      <video id="vid1" autoplay loop playsinline muted width="450" height="270" src="slides/denoised/standing_opposite_elbow-to-knee_crunch_real.mp4">
-	standing opposite elbow-to-knee crunch real</video>
-    </div>
-    <div class="col-xs-2">
-      <video id="vid3" autoplay loop playsinline muted width="450" height="270" src="slides/denoised/pickup_real.mp4">
-	pickup real</video>
-    </div>
-    <div id="vid5" class="col-xs-2">
-      <video autoplay loop playsinline muted width="450" height="270" src="slides/denoised/dumbbell_one-arm_shoulder_pressing_real.mp4">
-	dumbbell one-arm shoulder pressing real</video>
-    </div>
-    <div id="vid7" class="col-xs-2">
-      <video autoplay loop playsinline muted width="450" height="270" src="slides/denoised/arm_circling_real.mp4">
-	arm circling real</video>
-    </div>
-  </div>
-  <div class="row" style="">
-    <div class="col-xs-2" style="margin-top:6em;">
-      <h4>Encoded-Decoded</h4>
-    </div>
-    <div class="col-xs-2">
-      <video id="vid2" autoplay loop playsinline muted width="450" height="270" src="slides/denoised/standing_opposite_elbow-to-knee_crunch_ED.mp4">
-	standing opposite elbow-to-knee crunch encoded-decoded</video>
-    </div>
-    <div class="col-xs-2">
-      <video id="vid4" autoplay loop playsinline muted width="450" height="270" src="slides/denoised/pickup_ED.mp4">
-	pickup encoded-decoded</video>
-    </div>
-    <div class="col-xs-2">
-      <video id="vid6" autoplay loop playsinline muted width="450" height="270" src="slides/denoised/dumbbell_one-arm_shoulder_pressing_ED.mp4">
-	dumbbell one-arm shoulder pressing encoded-decoded</video>
-    </div>
-    <div class="col-xs-2">
-      <video id="vid8" autoplay loop playsinline muted width="450" height="270" src="slides/denoised/arm_circling_ED.mp4">
-	arm circling encoded-decoded</video>
-    </div>
-  </div>
+      <div class="row" style="">
+	<div class="col-xs-6">
+	  <b> <u>Encoder</u></b>: Given a sequence of body poses
+	  <img src="https://latex.codecogs.com/svg.latex?{P_1, \ldots, P_T}" alt="P_1, ..., P_T" border="0" onload="this.style.height=(this.height/8+'ex')">
+	  and an action label
+	  <img src="https://latex.codecogs.com/svg.latex?{a}" alt="a" border="0" onload="this.style.height=(this.height/8+'ex')">
+	  , the encoder outputs
+	  distribution parameters on which we define a KL loss
+	  <img src="https://latex.codecogs.com/svg.latex?{\mathcal{L}_{KL}}" alt="\mathcal{L}_{KL}" border="0" onload="this.style.height=(this.height/8+'ex')">
+	  .
+	  We use extra learnable tokens per action (
+	  <img src="https://latex.codecogs.com/svg.latex?{\mu_{a}^{token}}" alt="\mu_{a}^{token}" border="0" onload="this.style.height=(this.height/8+'ex')">
+	  and
+	  <img src="https://latex.codecogs.com/svg.latex?{\Sigma_{a}^{token}}" alt="\Sigma_{a}^{token}" border="0" onload="this.style.height=(this.height/8+'ex')">
+	  )
+	  as a way to
+	  obtain
+	  <img src="https://latex.codecogs.com/svg.latex?{\mu}" alt="\mu" border="0" onload="this.style.height=(this.height/8+'ex')">
+	  and
+	  <img src="https://latex.codecogs.com/svg.latex?{\Sigma}" alt="\Sigma" border="0" onload="this.style.height=(this.height/8+'ex')">
+	  from the Transformer encoder.
+	  We sample from
+	  <img src="https://latex.codecogs.com/svg.latex?{\mu}" alt="\mu" border="0" onload="this.style.height=(this.height/8+'ex')">
+	  and
+	  <img src="https://latex.codecogs.com/svg.latex?{\Sigma}" alt="\Sigma" border="0" onload="this.style.height=(this.height/8+'ex')">
+	  the latent representation
+	  <img src="https://latex.codecogs.com/svg.latex?{z \in \mathbf{M}}" alt="z \in \mathbf{M}" border="0" onload="this.style.height=(this.height/8+'ex')">
+	  (the encoded input).
+	</div>
+	<div class="col-xs-6">
+	  <b><u>Decoder</u></b>: It takes the latent vector
+	  <img src="https://latex.codecogs.com/svg.latex?{z}" alt="z" border="0" onload="this.style.height=(this.height/8+'ex')">, an action label
+	  <img src="https://latex.codecogs.com/svg.latex?{a}" alt="a" border="0" onload="this.style.height=(this.height/8+'ex')">, and a duration
+	  <img src="https://latex.codecogs.com/svg.latex?{T}" alt="T" border="0" onload="this.style.height=(this.height/8+'ex')">
+	  as input.
+	  The action determines the learnable
+	  <img src="https://latex.codecogs.com/svg.latex?{b_{a}^{token}}" alt="b_{a}^{token}" border="0" onload="this.style.height=(this.height/8+'ex')">
+	  additive token,
+	  and the duration determines the number of positional encodings (PE) to input to the decoder.
+	  The decoder outputs the whole sequence
+	  <img src="https://latex.codecogs.com/svg.latex?{\widehat{P}_1, \ldots, \widehat{P}_T}" alt="\widehat{P}_1, \ldots, \widehat{P}_T" border="0" onload="this.style.height=(this.height/8+'ex')">
+	  against which
+	  the reconstruction loss
+	  <img src="https://latex.codecogs.com/svg.latex?{\mathcal{L}_{P}}" alt="\mathcal{L}_{P}" border="0" onload="this.style.height=(this.height/8+'ex')">
+	  is computed.
+	  In addition, we compute vertices with a differentiable SMPL layer
+	  to define a vertex loss
+	  <img src="https://latex.codecogs.com/svg.latex?{\mathcal{L}_{V}}" alt="\mathcal{L}_{V}" border="0" onload="this.style.height=(this.height/8+'ex')">
+	  .
+	</div>
+      </div>
 
-  <h4 style="text-align: center;margin-top:2em;margin-bottom:2em;"><u>Same noise but different durations</u></h4>
+      <div style="margin-top: 2rem; margin-bottom:3rem;">
+	<b><u>Generator</u></b>: The decoder alone is simply the generator, where the encoded input <img src="https://latex.codecogs.com/svg.latex?{z}" alt="z" border="0" onload="this.style.height=(this.height/8+'ex')"> is replaced by a vector randomly sampled from a Gaussian distribution.
+      </div>
 
-  <div class="row">
-    <div class="col-xs-2">
-      <video autoplay loop playsinline muted width="450" height="270" src="slides/durations/action0_generation_0.mp4"></video>
+      <h3 class="colored">Visual results</h3>
+      <hr/>
+      <h4 style="text-align: center;margin-top:1em;margin-bottom:1em"><b>Generated motions</b></h4>
+      <div class="row">
+	<div class="col-xs-2">
+	  <video autoplay loop playsinline muted width="450" height="270" src="visuals/pickup.mp4"></video>
+	</div>
+	<div class="col-xs-2">
+	  <video autoplay loop playsinline muted width="450" height="270" src="visuals/raising_arms.mp4"></video>
+	</div>
+	<div class="col-xs-2">
+	  <video autoplay loop playsinline muted width="450" height="270" src="visuals/torso_stretching.mp4"></video>
+	</div>
+	<div class="col-xs-2">
+	  <video autoplay loop playsinline muted width="450" height="270" src="visuals/bending.mp4"></video>
+	</div>
+	<div class="col-xs-2">
+	  <video autoplay loop playsinline muted width="450" height="270" src="visuals/knee_raising.mp4"></video>
+	</div>
+      </div>
+      <div class="row">
+	<div class="col-xs-2">
+	  <video autoplay loop playsinline muted width="450" height="270" src="visuals/salute.mp4"></video>
+	</div>
+	<div class="col-xs-2">
+	  <video autoplay loop playsinline muted width="450" height="270" src="visuals/high_knee_running.mp4"></video>
+	</div>
+	<div class="col-xs-2">
+	  <video autoplay loop playsinline muted width="450" height="270" src="visuals/kicking.mp4"></video>
+	</div>
+	<div class="col-xs-2">
+	  <video autoplay loop playsinline muted width="450" height="270" src="visuals/upper_stretching.mp4"></video>
+	</div>
+	<div class="col-xs-2">
+	  <video autoplay loop playsinline muted width="450" height="270" src="visuals/jumping_jacks.mp4"></video>
+	</div>
+      </div>
+
+      <p style="margin-top:2em">
+	Please refer to the video for more examples and see other experiments (different durations, interpolation in latent space, loss ablation).
+      </p>
+
+      <!--
+	  <h4 style="text-align: center;margin-top:2em;margin-bottom:2em"><u>Smoothing real data</u></h4>
+	  <div class="row" style="">
+	    <div class="col-xs-2" style="margin-top:7em;">
+	      <h4>Real data</h4>
+	    </div>
+	    <div class="col-xs-2">
+	      <video id="vid1" autoplay loop playsinline muted width="450" height="270" src="slides/denoised/standing_opposite_elbow-to-knee_crunch_real.mp4">
+		standing opposite elbow-to-knee crunch real</video>
+	    </div>
+	    <div class="col-xs-2">
+	      <video id="vid3" autoplay loop playsinline muted width="450" height="270" src="slides/denoised/pickup_real.mp4">
+		pickup real</video>
+	    </div>
+	    <div id="vid5" class="col-xs-2">
+	      <video autoplay loop playsinline muted width="450" height="270" src="slides/denoised/dumbbell_one-arm_shoulder_pressing_real.mp4">
+		dumbbell one-arm shoulder pressing real</video>
+	    </div>
+	    <div id="vid7" class="col-xs-2">
+	      <video autoplay loop playsinline muted width="450" height="270" src="slides/denoised/arm_circling_real.mp4">
+		arm circling real</video>
+	    </div>
+	  </div>
+	  <div class="row" style="">
+	    <div class="col-xs-2" style="margin-top:6em;">
+	      <h4>Encoded-Decoded</h4>
+	    </div>
+	    <div class="col-xs-2">
+	      <video id="vid2" autoplay loop playsinline muted width="450" height="270" src="slides/denoised/standing_opposite_elbow-to-knee_crunch_ED.mp4">
+		standing opposite elbow-to-knee crunch encoded-decoded</video>
+	    </div>
+	    <div class="col-xs-2">
+	      <video id="vid4" autoplay loop playsinline muted width="450" height="270" src="slides/denoised/pickup_ED.mp4">
+		pickup encoded-decoded</video>
+	    </div>
+	    <div class="col-xs-2">
+	      <video id="vid6" autoplay loop playsinline muted width="450" height="270" src="slides/denoised/dumbbell_one-arm_shoulder_pressing_ED.mp4">
+		dumbbell one-arm shoulder pressing encoded-decoded</video>
+	    </div>
+	    <div class="col-xs-2">
+	      <video id="vid8" autoplay loop playsinline muted width="450" height="270" src="slides/denoised/arm_circling_ED.mp4">
+		arm circling encoded-decoded</video>
+	    </div>
+	  </div>
+
+	  <h4 style="text-align: center;margin-top:2em;margin-bottom:2em;"><u>Same noise but different durations</u></h4>
+
+	  <div class="row">
+	    <div class="col-xs-2">
+	      <video autoplay loop playsinline muted width="450" height="270" src="slides/durations/action0_generation_0.mp4"></video>
+	    </div>
+	    <div class="col-xs-2">
+	      <video autoplay loop playsinline muted width="450" height="270" src="slides/durations/action0_generation_1.mp4"></video>
+	    </div>
+	    <div class="col-xs-2">
+	      <video autoplay loop playsinline muted width="450" height="270" src="slides/durations/action0_generation_2.mp4"></video>
+	    </div>
+	    <div class="col-xs-2">
+	      <video autoplay loop playsinline muted width="450" height="270" src="slides/durations/action0_generation_3.mp4"></video>
+	    </div>
+	  </div>
+	  -->
+
+	  <!--
+
+	      action0_generation_1.mp4
+	      action0_generation_2.mp4
+	      action0_generation_3.mp4
+	      action11_generation_0.mp4
+	      action11_generation_1.mp4
+	      action11_generation_2.mp4
+	      action11_generation_3.mp4
+	      action4_generation_0.mp4
+	      action4_generation_1.mp4
+	      action4_generation_2.mp4
+	      action4_generation_3.mp4
+
+	      arm_circling_real.mp4
+	      deltoid_muscle_stretching_ED.mp4
+	      deltoid_muscle_stretching_real.mp4
+	      dumbbell_one-arm_shoulder_pressing_ED.mp4
+	      dumbbell_one-arm_shoulder_pressing_real.mp4
+	      elbow_circling_ED.mp4
+	      elbow_circling_real.mp4
+	      kicking_ED.mp4
+	      kicking_real.mp4
+	      pickup_ED.mp4
+	      pickup_real.mp4
+	      pulling_chest_expanders_ED.mp4
+	      pulling_chest_expanders_real.mp4
+	      single_dumbbell_raising_ED.mp4
+	      single_dumbbell_raising_real.mp4
+	    -->
+	  <h3 class="colored">Results</h3>
+	  <hr/>
+	  <h4 style="text-align: center;margin-top:1em;margin-bottom:0.5em"><b>Comparison to the state of the art</b></h4>
+	  <img src="images/sota.png" alt="sota.png" class="center" style="width: 100%; max-width: 1000px;">
+      <p style="margin-top:1em">
+	Please refer to the paper to get more details.
+      </p>
+
+      <h3 class="colored">Bibtex</h3>
+      <hr/>
+      <p>
+	If you find this project useful for your research, please cite
+      </p>
+      <div class="card">
+	<div class="card-block">
+	  <pre class="card-text clickselect">
+	    @inproceedings{petrovich21actor,
+	    title     = {Action-Conditioned 3{D} Human Motion Synthesis with Transformer {VAE}},
+	    author    = {Petrovich, Mathis and Black, Michael J. and Varol, G{\"u}l},
+	    booktitle = {International Conference on Computer Vision ({ICCV})},
+	    year      = {2021}
+	    }</pre>
+	</div>
+      </div> <!--" -->
+
+      <h3 class="colored">Acknowledgements</h3>
+      <hr/>
+      <p>
+	This work was granted access to
+	the HPC resources of IDRIS under the allocation 2021-101535 made by GENCI.
+	The authors would like to thank Mathieu Aubry and David Picard
+	for helpful feedback, Chuan Guo and Shihao Zou for their help with Action2Motion details.
+      </p>
+
+      <h3 class="colored">Copyright Notice</h3>
+      <hr/>
+      The documents contained in these directories are included by the contributing authors as a means to ensure timely dissemination of scholarly and technical work on a non-commercial basis. Copyright and all rights therein are maintained by the authors or by other copyright holders, notwithstanding that they have offered their works here electronically. It is understood that all persons copying this information will adhere to the terms and constraints invoked by each author's copyright.
     </div>
-    <div class="col-xs-2">
-      <video autoplay loop playsinline muted width="450" height="270" src="slides/durations/action0_generation_1.mp4"></video>
-    </div>
-    <div class="col-xs-2">
-      <video autoplay loop playsinline muted width="450" height="270" src="slides/durations/action0_generation_2.mp4"></video>
-    </div>
-    <div class="col-xs-2">
-      <video autoplay loop playsinline muted width="450" height="270" src="slides/durations/action0_generation_3.mp4"></video>
-    </div>
-  </div>
-  -->
 
-<!--
-
-action0_generation_1.mp4
-action0_generation_2.mp4
-action0_generation_3.mp4
-action11_generation_0.mp4
-action11_generation_1.mp4
-action11_generation_2.mp4
-action11_generation_3.mp4
-action4_generation_0.mp4
-action4_generation_1.mp4
-action4_generation_2.mp4
-action4_generation_3.mp4
-
-arm_circling_real.mp4
-deltoid_muscle_stretching_ED.mp4
-deltoid_muscle_stretching_real.mp4
-dumbbell_one-arm_shoulder_pressing_ED.mp4
-dumbbell_one-arm_shoulder_pressing_real.mp4
-elbow_circling_ED.mp4
-elbow_circling_real.mp4
-kicking_ED.mp4
-kicking_real.mp4
-pickup_ED.mp4
-pickup_real.mp4
-pulling_chest_expanders_ED.mp4
-pulling_chest_expanders_real.mp4
-single_dumbbell_raising_ED.mp4
-single_dumbbell_raising_real.mp4
--->
-  <h3 class="colored">Results</h3>
-  <hr/>
-  <h4 style="text-align: center;margin-top:1em;margin-bottom:0.5em"><b>Comparison to the state of the art</b></h4>
-  <img src="images/sota.png" alt="sota.png" class="center" style="width: 100%; max-width: 1000px;">
-  <p style="margin-top:1em">
-    Please refer to the paper to get more details.
-  </p>
-
-  <h3 class="colored">Bibtex</h3>
-  <hr/>
-  <p>
-    If you find this project useful for your research, please cite
-  </p>
-  <div class="card">
-    <div class="card-block">
-      <pre class="card-text clickselect">
-@inproceedings{petrovich21actor,
-  title     = {Action-Conditioned 3{D} Human Motion Synthesis with Transformer {VAE}},
-  author    = {Petrovich, Mathis and Black, Michael J. and Varol, G{\"u}l},
-  booktitle = {International Conference on Computer Vision ({ICCV})},
-  year      = {2021}
-}</pre>
-    </div>
-  </div> <!--" -->
-
-  <h3 class="colored">Acknowledgements</h3>
-  <hr/>
-  <p>
-This work was granted access to
-the HPC resources of IDRIS under the allocation 2021-101535 made by GENCI.
-The authors would like to thank Mathieu Aubry and David Picard
-for helpful feedback, Chuan Guo and Shihao Zou for their help with Action2Motion details.
-  </p>
-
-  <h3 class="colored">Copyright Notice</h3>
-  <hr/>
-The documents contained in these directories are included by the contributing authors as a means to ensure timely dissemination of scholarly and technical work on a non-commercial basis. Copyright and all rights therein are maintained by the authors or by other copyright holders, notwithstanding that they have offered their works here electronically. It is understood that all persons copying this information will adhere to the terms and constraints invoked by each author's copyright.
-</div>
-
-</body>
+  </body>
 </html>
