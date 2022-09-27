@@ -163,6 +163,21 @@
 	      <a target="_blank" href="https://arxiv.org/abs/2209.04066"> <button type="button" class="btn btn-primary btn-sm"> Paper </button></a>
               <a target="_blank" href="https://teach.is.tue.mpg.de"> <button type="button" class="btn btn-primary btn-sm"> Webpage </button></a>
 	      <a target="_blank" href="https://github.com/athn-nik/teach"> <button type="button" class="btn btn-primary btn-sm"> Code </button></a>
+              <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#bibtex18">BibTex</button>
+              <div id="bibtex18" class="collapse">
+		<pre><tt>@inproceedings{TEACH:3DV:2022,
+  title = {{TEACH}: {T}emporal {A}ction {C}ompositions for {3D} {H}umans},
+  author = {Athanasiou, Nikos and Petrovich, Mathis and Black, Michael J. and Varol, G{\"u}ll },
+  booktitle = {{International Conference on 3D Vision (3DV)}},
+  year = {2022}
+}</tt></pre>
+              </div>
+              <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#abstract18">Abstract</button>
+              <div id="abstract18" class="collapse">
+		<p class="bg-light">
+		  Given a series of natural language descriptions, our task is to generate 3D human motions that correspond semantically to the text, and follow the temporal order of the instructions. In particular, our goal is to enable the synthesis of a series of actions, which we refer to as temporal action composition. The current state of the art in text-conditioned motion synthesis only takes a single action or a single sentence as input. This is partially due to lack of suitable training data containing action sequences, but also due to the computational complexity of their non-autoregressive model formulation, which does not scale well to long sequences. In this work, we address both issues. First, we exploit the recent BABEL motion-text collection, which has a wide range of labeled actions, many of which occur in a sequence with transitions between them. Next, we design a Transformer-based approach that operates non-autoregressively within an action, but autoregressively within the sequence of actions. This hierarchical formulation proves effective in our experiments when compared with multiple baselines. Our approach, called TEACH for "TEmporal Action Compositions for Human motions", produces realistic human motions for a wide variety of actions and temporal compositions from language descriptions. To encourage work on this new task, we make our code available for research purposes at our website.
+		</p>
+              </div>
               <div style="height:30px;"></div>
             </div>
           </div>
@@ -246,6 +261,21 @@
               <u>Mathis Petrovich</u>*, Chao Liang*, Ryoma Sato, Yanbin Liu, Yao-Hung Hubert Tsai, <br> Linchao Zhu, Yi Yang, Ruslan Salakhutdinov, Makoto Yamada<br>
               European Conference on Machine Learning (ECML 2022) <br>
               <a target="_blank" href="https://arxiv.org/abs/2005.12123"> <button type="button" class="btn btn-primary btn-sm"> Paper </button></a>
+              <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#bibtex12">BibTex</button>
+              <div id="bibtex12" class="collapse">
+		<pre><tt>@inproceedings{petrovich2022FROT,
+  title = {Feature Robust Optimal Transport for High-dimensional Data},
+  author = {Mathis Petrovich, Chao Liang, Ryoma Sato, Yanbin Liu, Yao-Hung Hubert Tsai, Linchao Zhu, Yi Yang, Ruslan Salakhutdinov and Makoto Yamada},
+  booktitle = {{European Conference on Machine Learning (ECML)}},
+  year = {2022}
+}</tt></pre>
+              </div>
+              <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#abstract12">Abstract</button>
+              <div id="abstract12" class="collapse">
+		<p class="bg-light">
+		  Optimal transport is a machine learning problem with applications including distribution comparison, feature selection, and generative adversarial networks. In this paper, we propose feature-robust optimal transport (FROT) for high-dimensional data, which solves high-dimensional OT problems using feature selection to avoid the curse of dimensionality. Specifically, we find a transport plan with discriminative features. To this end, we formulate the FROT problem as a min--max optimization problem. We then propose a convex formulation of the FROT problem and solve it using a Frank--Wolfe-based optimization algorithm, whereby the subproblem can be efficiently solved using the Sinkhorn algorithm. Since FROT finds the transport plan from selected features, it is robust to noise features. To show the effectiveness of FROT, we propose using the FROT algorithm for the layer selection problem in deep neural networks for semantic correspondence. By conducting synthetic and benchmark experiments, we demonstrate that the proposed method can find a strong correspondence by determining important layers. We show that the FROT algorithm achieves state-of-the-art performance in real-world semantic correspondence datasets.
+		</p>
+              </div>
               <div style="height:30px;"></div>
             </div>
           </div>
@@ -260,6 +290,21 @@
 	      Dinesh Singh, H&eacute;ctor Climente-Gonz&aacute;lez, <u>Mathis Petrovich</u>, Eiryo Kawakami, Makoto Yamada<br>
               Machine Learning for Computational Biology (MLCB 2020) <br>
               <a target="_blank" href="https://arxiv.org/abs/2001.08322"> <button type="button" class="btn btn-primary btn-sm"> Paper </button></a>
+              <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#bibtex11">BibTex</button>
+              <div id="bibtex11" class="collapse">
+		<pre><tt>@inproceedings{dinesh2020fsnet,
+  title = {{FsNet}: Feature Selection Network on High-dimensional Biological Data},
+  author = {Dinesh Singh, Héctor Climente-González, Mathis Petrovich, Eiryo Kawakami and Makoto Yamada},
+  booktitle = {{Machine Learning for Computational Biology (MLCB)}},
+  year = {2020}
+}</tt></pre>
+              </div>
+              <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#abstract11">Abstract</button>
+              <div id="abstract11" class="collapse">
+		<p class="bg-light">
+		  Biological data including gene expression data are generally high-dimensional and require efficient, generalizable, and scalable machine-learning methods to discover their complex nonlinear patterns. The recent advances in machine learning can be attributed to deep neural networks (DNNs), which excel in various tasks in terms of computer vision and natural language processing. However, standard DNNs are not appropriate for high-dimensional datasets generated in biology because they have many parameters, which in turn require many samples. In this paper, we propose a DNN-based, nonlinear feature selection method, called the feature selection network (FsNet), for high-dimensional and small number of sample data. Specifically, FsNet comprises a selection layer that selects features and a reconstruction layer that stabilizes the training. Because a large number of parameters in the selection and reconstruction layers can easily result in overfitting under a limited number of samples, we use two tiny networks to predict the large, virtual weight matrices of the selection and reconstruction layers. Experimental results on several real-world, high-dimensional biological datasets demonstrate the efficacy of the proposed method.
+		</p>
+              </div>
               <div style="height:30px;"></div>
             </div>
           </div>
@@ -274,6 +319,23 @@
 	      <u>Mathis Petrovich</u>, Makoto Yamada <br>
               arXiv 2020 <br>
               <a target="_blank" href="https://arxiv.org/abs/2003.05747"> <button type="button" class="btn btn-primary btn-sm"> Paper </button></a>
+
+              <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#bibtex10">BibTex</button>
+              <div id="bibtex10" class="collapse">
+		<pre><tt>@inproceedings{petrovich2020fall,
+  title = {Fast local linear regression with anchor regularization},
+  author = {Mathis Petrovich and Makoto Yamada},
+  booktitle = {arXiv preprint},
+  year = {2020}
+}</tt></pre>
+              </div>
+              <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#abstract10">Abstract</button>
+              <div id="abstract10" class="collapse">
+		<p class="bg-light">
+		  Regression is an important task in machine learning and data mining. It has several applications in various domains, including finance, biomedical, and computer vision. Recently, network Lasso, which estimates local models by making clusters using the network information, was proposed and its superior performance was demonstrated. In this study, we propose a simple yet effective local model training algorithm called the fast anchor regularized local linear method (FALL). More specifically, we train a local model for each sample by regularizing it with precomputed anchor models. The key advantage of the proposed algorithm is that we can obtain a closed-form solution with only matrix multiplication; additionally, the proposed algorithm is easily interpretable, fast to compute and parallelizable. Through experiments on synthetic and real-world datasets, we demonstrate that FALL compares favorably in terms of accuracy with the state-of-the-art network Lasso algorithm with significantly smaller training time (two orders of magnitude).
+		</p>
+              </div>
+
               <div style="height:30px;"></div>
             </div>
           </div>
@@ -288,10 +350,24 @@
 	      Abhishek Goswami, <u>Mathis Petrovich</u>, Wolf Hauser, Frederic Dufaux<br>
               International Conference on Multimedia & Expo Workshops (ICMEW 2020) <br>
               <a target="_blank" href="https://hal.inria.fr/hal-02543939"> <button type="button" class="btn btn-primary btn-sm"> Paper </button></a>
+              <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#bibtex09">BibTex</button>
+              <div id="bibtex09" class="collapse">
+		<pre><tt>@inproceedings{abhishek2020tonemapping,
+  title = {Tone Mapping Operators: Progressing Towards Semantic-Awareness},
+  author = {Abhishek Goswami, Mathis Petrovich, Wolf Hauser and Frederic Dufaux},
+  booktitle = {{International Conference on Multimedia & Expo Workshops (ICMEW 2020)}},
+  year = {2020}
+}</tt></pre>
+              </div>
+              <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#abstract09">Abstract</button>
+              <div id="abstract09" class="collapse">
+		<p class="bg-light">
+		  A Tone Mapping Operator (TMO) aims at reproducing the visual perception of a scene with a high dynamic range (HDR) on low dynamic range (LDR) media. TMOs have primarily aimed to preserve global perception by employing a model of human visual system (HVS), analysing perceptual attributes of each pixel and adjusting exposure at the pixel level. Preserving semantic perception, also an essential step for HDR rendering, has never been in explicit focus. We argue that explicitly introducing semantic information to create a 'content and semantic'-aware TMO has the potential to further improve existing approaches. In this paper, we therefore propose a new local tone mapping approach by introducing semantic information using off-the-shelf semantic segmenta-tion tools into a novel tone mapping pipeline. More specifically , we adjust pixel values to a semantic specific target to reproduce the real-world semantic perception.
+		</p>
+              </div>
               <div style="height:30px;"></div>
             </div>
           </div>
-
       </div>
 
       <div class="row">
