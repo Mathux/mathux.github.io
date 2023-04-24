@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>TMR</title>
+    <meta name="description" content="TMR: Text-to-Motion Retrieval">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta charset="utf-8">
+
+    <!-- ICONS -->
+    <script src="https://kit.fontawesome.com/bacac70704.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mathis.petrovich.fr/tmr" />
+    <meta property="og:title" content="TMR" />
+    <meta property="og:description" content="Text-to-Motion Retrieval using Contrastive 3D Human Motion Synthesis" />
+    <meta property="og:image" content="https://mathis.petrovich.fr/tmr/images/small_white.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1920" />
+    <meta property="og:image:height" content="1024" />
+    <meta property="og:image:alt" content="Teaser" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/media.css" rel="stylesheet">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VL12GQY0EE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-VL12GQY0EE');
+    </script>
+    <!-- <script src="syncvideo.js"></script> -->
+  </head>
+  <body>
+
+    <div class="container" style="text-align:center;">
+      <div class="row" style="text-align:center">
+	<!-- <h1 style="font-family: 'Shadows Into Light', cursive; textsize=2em">TMR: </h1> -->
+	<h1>TMR: Text-to-Motion Retrieval</h1> <h2>Using Contrastive 3D Human Motion Synthesis</h2>
+	<!-- <h4>Conference X</h4> style="font-family: 'Shadows Into Light', cursive; -->
+      </div>
+      <div class="row" style="text-align:center">
+	<h4>
+	  <a href="../"><nobr>Mathis Petrovich</nobr></a> &emsp;
+	  <a href="https://ps.is.mpg.de/~black" target="_blank"><nobr>Michael J. Black</nobr></a> &emsp;
+	  <a href="https://imagine.enpc.fr/~varolg" target="_blank"><nobr>G&uumll Varol</nobr></a>
+	</h4>
+      </div>
+      <div class="row" style="text-align:center">
+	<h4>
+	  <!-- <a href="link to arxiv" target="_blank"><nobr>arXiv 2023</nobr></a> &emsp; -->
+	  <nobr>arXiv 2023</nobr> &emsp;
+	</h4>
+      </div>
+    </div>
+
+    <div class="container" style="text-align:center;" >
+      <div class="row">
+	<h3custom style="text-align:center;">
+	  <div class="video-container">
+	    <video preload="auto" autoplay muted playsinline
+		   autoplay loop disablepictureinpicture src="videos/tmr_teaservid.webm"
+		   type="video/webm">
+	    </video>
+	  </div>
+	</h3custom>
+      </div>
+
+      <div class="row">
+	<h3custom style="text-align:center;">
+	  <a target="_blank" href="https://arxiv.org/abs/XXXX.XXXXX"> <button type="button" class="btn btn-primary btn-lg"> Paper </button></a>
+	  <a target="_blank" href="https://github.com/Mathux/TMR"> <button type="button" class="btn btn-primary btn-lg"> Code </button></a>
+	  <a target="_blank" href="https://huggingface.co/spaces/Mathux/TMR"> <button type="button" class="btn btn-primary btn-lg"> Demo </button></a>
+	  <!-- <a target="_blank" href="poster.pdf"> <button type="button" class="btn btn-primary btn-lg"> Poster </button></a> -->
+	  <a target="_blank" href="tmr.bib"> <button type="button" class="btn btn-primary btn-lg"> BibTex </button></a>
+	</h3custom>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+	<div class="col-md-12">
+          <h3>Abstract</h3>
+          <p style="font-size: 120%;text-align: justify;">
+	    In this paper, we present TMR, a simple yet effective approach for text to 3D human motion retrieval.
+	    While previous work has only treated retrieval as a proxy evaluation metric, we tackle it as a standalone task.
+	    Our method extends the state-of-the-art text-to-motion synthesis model TEMOS, and incorporates a contrastive loss to better structure the cross-modal latent space.
+	    We show that maintaining the motion generation loss, along with the contrastive training, is crucial to obtain good performance.
+	    We introduce a benchmark for evaluation and provide an in-depth analysis by reporting results on several protocols.
+	    Our extensive experiments on the KIT-ML and HumanML3D datasets show that TMR outperforms the prior work by a significant margin,
+	    for example reducing the median rank from 54 to 19. Finally, we showcase the potential of our approach on moment retrieval.
+	    Our code and models are publicly available.
+	  </p>
+	</div>
+      </div>
+
+      <div class="row">
+	<h3>Video</h3>
+	<div class="video-container">
+	  <video src="http://imagine.enpc.fr/~petrovim/TMR_website_video.mp4" controls type="video/mp4">
+	    </video>
+	</div>
+      </div>
+
+      <br>
+
+      <div class="row">
+	<div class="col-md-12">
+          <h3>Demo</h3>
+          <p style="font-size: 120%;text-align: justify;">
+	    We provide an interactive demo hosted in <a target="_blank" href="https://huggingface.co/spaces/Mathux/TMR">Hugging Face spaces</a> to let users
+	    try the model with their own query.
+          </p>
+	</div>
+      </div>
+
+      <div class="row">
+	<div class="col-md-12">
+	  <h3>Bibtex</h3>
+          <p style="font-size: 120%;text-align: justify;">
+	    If you find this project useful for your research, please cite
+	  </p>
+	  <div class="card">
+	    <div class="card-block">
+	      <pre class="card-text clickselect">
+@article{petrovich23tmr,
+  title     = {{TMR}: Text-to-Motion Retrieval Using Contrastive {3D} Human Motion Synthesis},
+  author    = {Petrovich, Mathis and Black, Michael J. and Varol, G{\"u}l},
+  journal   = {arXiv preprint},
+  year      = {2023}
+}</pre>
+	    </div>
+	  </div>
+	</div>
+      </div>
+
+      <br>
+
+      <div class="row">
+	<div class="col-md-12">
+          <h3>Copyright Notice</h3>
+          <p style="font-size: 120%;text-align: justify;">
+	    The documents contained in these directories are included by the contributing authors as a means to ensure timely dissemination of scholarly and technical work on a non-commercial basis. Copyright and all rights therein are maintained by the authors or by other copyright holders, notwithstanding that they have offered their works here electronically. It is understood that all persons copying this information will adhere to the terms and constraints invoked by each author's copyright.
+          </p>
+	</div>
+      </div>
+    </div>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
