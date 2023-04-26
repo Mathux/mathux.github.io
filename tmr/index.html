@@ -37,6 +37,16 @@
       gtag('config', 'G-VL12GQY0EE');
     </script>
     <!-- <script src="syncvideo.js"></script> -->
+
+    <script>
+    window.addEventListener('load', function () {
+  gradioURL = window.location.href
+  if (!gradioURL.endsWith('?__theme=light')) {
+    window.location.replace(gradioURL + '?__theme=light');
+  }
+    });
+    </script>
+
   </head>
   <body>
 
@@ -119,6 +129,14 @@
 	    try the model with their own query.
           </p>
 	</div>
+
+
+	<script
+	  type="module"
+	  src="https://gradio.s3-us-west-2.amazonaws.com/3.24.1/gradio.js"
+	  ></script>
+	<gradio-app src="https://mathux-tmr.hf.space?__theme=light"></gradio-app>
+
       </div>
 
       <div class="row">

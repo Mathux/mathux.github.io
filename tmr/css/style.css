@@ -4,6 +4,10 @@
 */
 
 
+.embed_hidden {
+    display: none;
+}
+
 .containerB {
     display: flex;
     justify-content: center;
