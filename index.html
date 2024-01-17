@@ -154,6 +154,50 @@
         <div class="col-md-12">
           <h3>Publications</h3>
 
+	  <!-- STMC -->
+	 <div class="row">
+            <div class="col-xs-10 col-sm-4 col-md-4">
+              <a href="stmc/index.html">
+		<img class="img-thumbnail mb-3" src="stmc/images/stmc.png" alt="STMC: Multi-Track Timeline Control for Text-Driven 3D Human Motion Generation">
+              </a>
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8" style="font-size: 120%;">
+              <strong>STMC: Multi-Track Timeline Control for Text-Driven 3D Human Motion Generation</strong><br>
+	      <u>Mathis Petrovich</u>, Or Litany, Umar Iqbal, Michael J. Black, G&uumll Varol, Xue Bin Peng, Davis Rempe<br>
+	      arXiv 2024 <br>
+              <a target="_blank" href="https://arxiv.org/abs/2401.08559"> <button type="button" class="btn btn-primary btn-sm"> Paper </button></a>
+              <a target="_blank" href="stmc/index.html"> <button type="button" class="btn btn-primary btn-sm"> Webpage </button></a>
+              <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#bibtex21">BibTex</button>
+              <div id="bibtex21" class="collapse">
+		<pre><tt>@article{petrovich24stmc,
+    title     = {{STMC}: Multi-Track Timeline Control for Text-Driven 3D Human Motion Generation},
+    author    = {Petrovich, Mathis and Litany, Or and Iqbal, Umar and Black, Michael J. and Varol, G{\"u}l and Peng, Xue Bin and Rempe, Davis}
+    journal   = {arXiv:2401.08559},
+    year      = {2024}
+}</tt></pre>
+              </div>
+              <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#abstract21">Abstract</button>
+              <div id="abstract21" class="collapse">
+		<p class="bg-light">
+Recent advances in generative modeling have led to promising progress on synthesizing 3D human motion from text,
+	    with methods that can generate character animations from short prompts and specified durations.
+	    However, using a single text prompt as input lacks the fine-grained control needed by animators,
+	    such as composing multiple actions and defining precise durations for parts of the motion.
+	    To address this, we introduce the new problem of timeline control for text-driven motion synthesis,
+	    which provides an intuitive, yet fine-grained, input interface for users.
+	    Instead of a single prompt, users can specify a multi-track timeline of multiple prompts organized in temporal intervals that may overlap.
+	    This enables specifying the exact timings of each action and composing multiple actions in sequence or at overlapping intervals.
+	    To generate composite animations from a multi-track timeline, we propose a new test-time denoising method.
+	    This method can be integrated with any pre-trained motion diffusion model to synthesize realistic motions that accurately reflect the timeline.
+	    At every step of denoising, our method processes each timeline interval (text prompt) individually,
+	    subsequently aggregating the predictions with consideration for the specific body parts engaged in each action.
+	    Experimental comparisons and ablations validate that our method produces realistic motions that respect the semantics and timing of given text prompts.
+		</p>
+              </div>
+              <div style="height:30px;"></div>
+            </div>
+          </div>
+
 	  <!-- TMR -->
 	  <div class="row">
             <div class="col-xs-10 col-sm-4 col-md-4">
