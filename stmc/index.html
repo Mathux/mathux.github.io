@@ -1,115 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>STMC</title>
-    <meta name="description" content="Multi-Track Timeline Control">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
-    <meta charset="utf-8">
+	<head>
+		<title>STMC</title>
+		<meta name="description" content="Multi-Track Timeline Control" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, user-scalable=yes"
+		/>
+		<meta charset="utf-8" />
 
-    <!-- ICONS -->
-    <script src="https://kit.fontawesome.com/bacac70704.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+		<!-- ICONS -->
+		<script
+			src="https://kit.fontawesome.com/bacac70704.js"
+			crossorigin="anonymous"
+		></script>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css"
+		/>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://mathis.petrovich.fr/stmc" />
-    <meta property="og:title" content="STMC" />
-    <meta property="og:description" content="Multi-Track Timeline Control for Text-Driven 3D Human Motion Generation" />
-    <meta property="og:image" content="https://mathis.petrovich.fr/stmc/images/stmc.png" />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="1756" />
-    <meta property="og:image:height" content="1052" />
-    <meta property="og:image:alt" content="Teaser" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://mathis.petrovich.fr/stmc" />
+		<meta property="og:title" content="STMC" />
+		<meta
+			property="og:description"
+			content="Multi-Track Timeline Control for Text-Driven 3D Human Motion Generation"
+		/>
+		<meta
+			property="og:image"
+			content="https://mathis.petrovich.fr/stmc/images/stmc.png"
+		/>
+		<meta property="og:image:type" content="image/png" />
+		<meta property="og:image:width" content="1756" />
+		<meta property="og:image:height" content="1052" />
+		<meta property="og:image:alt" content="Teaser" />
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/media.css" rel="stylesheet">
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+			crossorigin="anonymous"
+		/>
+		<link href="css/style.css" rel="stylesheet" />
+		<link href="css/media.css" rel="stylesheet" />
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VL12GQY0EE"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=G-VL12GQY0EE"
+		></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag("js", new Date());
 
-      gtag('config', 'G-VL12GQY0EE');
-    </script>
-    <!-- <script src="syncvideo.js"></script> -->
-  </head>
-  <body>
-    <div class="container" style="text-align:center;">
-      <div class="row" style="text-align:center">
-	<h1>Multi-Track Timeline Control </h1> <h2>for Text-Driven 3D Human Motion Generation</h2>
-      </div>
-      <div class="row" style="text-align:center">
-	<h4>
-	  <a href="../"><nobr>Mathis Petrovich</nobr></a> &emsp;
-	  <a href="https://orlitany.github.io" target="_blank"><nobr>Or Litany</nobr></a> &emsp;
-	  <a href="https://www.umariqbal.info" target="_blank"><nobr>Umar Iqbal</nobr></a> &emsp;
-	  <a href="https://ps.is.mpg.de/~black" target="_blank"><nobr>Michael J. Black</nobr></a> &emsp;
-	  <a href="https://imagine.enpc.fr/~varolg" target="_blank"><nobr>G&uumll Varol</nobr></a> &emsp;
-	  <a href="https://xbpeng.github.io" target="_blank"><nobr>Xue Bin Peng</nobr></a> &emsp;
-	  <a href="https://davrempe.github.io" target="_blank"><nobr>Davis Rempe</nobr></a>
+			gtag("config", "G-VL12GQY0EE");
+		</script>
+		<!-- <script src="syncvideo.js"></script> -->
+	</head>
+	<body>
+		<div class="container" style="text-align: center">
+			<div class="row" style="text-align: center">
+				<h1>Multi-Track Timeline Control</h1>
+				<h2>for Text-Driven 3D Human Motion Generation</h2>
+			</div>
+			<div class="row" style="text-align: center">
+				<h4>
+					<a href="../"><nobr>Mathis Petrovich</nobr></a> &emsp;
+					<a href="https://orlitany.github.io" target="_blank"
+						><nobr>Or Litany</nobr></a
+					>
+					&emsp;
+					<a href="https://www.umariqbal.info" target="_blank"
+						><nobr>Umar Iqbal</nobr></a
+					>
+					&emsp;
+					<a href="https://ps.is.mpg.de/~black" target="_blank"
+						><nobr>Michael J. Black</nobr></a
+					>
+					&emsp;
+					<a href="https://imagine.enpc.fr/~varolg" target="_blank"
+						><nobr>G&uumll Varol</nobr></a
+					>
+					&emsp;
+					<a href="https://xbpeng.github.io" target="_blank"
+						><nobr>Xue Bin Peng</nobr></a
+					>
+					&emsp;
+					<a href="https://davrempe.github.io" target="_blank"
+						><nobr>Davis Rempe</nobr></a
+					>
+				</h4>
+			</div>
+			<div class="row" style="text-align: center">
+				<h4>
+					<a href="https://humogen.github.io" target="_blank"
+						><nobr>CVPRW 2024</nobr></a
+					>
+					&emsp;
+				</h4>
+			</div>
+		</div>
 
-	</h4>
-      </div>
-      <div class="row" style="text-align:center">
-	<h4>
-	  <a href="https://arxiv.org/abs/2401.08559" target="_blank"><nobr>arXiv 2024</nobr></a> &emsp;
-	</h4>
-      </div>
-    </div>
+		<div class="container" style="text-align: center">
+			<div class="row">
+				<h3custom style="text-align: center">
+					<div class="video-container">
+						<video
+							preload="auto"
+							autoplay
+							muted
+							playsinline
+							autoplay
+							loop
+							disablepictureinpicture
+						>
+							<source src="videos/stmc_teaser.mp4" type="video/mp4" />
+						</video>
+					</div>
+				</h3custom>
+			</div>
 
-    <div class="container" style="text-align:center;" >
-      <div class="row">
-	<h3custom style="text-align:center;">
-	  <div class="video-container">
-	    <video preload="auto" autoplay muted playsinline
-		   autoplay loop disablepictureinpicture >
-	      <source src="videos/stmc_teaser.mp4" type="video/mp4">
-	    </video>
-	  </div>
-	</h3custom>
-      </div>
+			<div class="row">
+				<h3custom style="text-align: center">
+					<a target="_blank" href="https://arxiv.org/abs/2401.08559">
+						<button type="button" class="btn btn-primary btn-lg">
+							Paper
+						</button></a
+					>
+					<!-- <a target="_blank" href="https://github.com/Mathux/STMC"> <button type="button" class="btn btn-primary btn-lg"> Code </button></a> -->
+					<button type="button" class="btn btn-secondary btn-lg">Code</button>
+					<button type="button" class="btn btn-secondary btn-lg">Demo</button>
+					<!-- <a target="_blank" href="https://huggingface.co/spaces/Mathux/STMC"> <button type="button" class="btn btn-primary btn-lg"> Demo </button></a> -->
+					<!-- <a target="_blank" href="stmc_poster.pdf"> <button type="button" class="btn btn-primary btn-lg"> Poster </button></a> -->
+					<a href="#bibtex">
+						<button type="button" class="btn btn-primary btn-lg">
+							BibTex
+						</button></a
+					>
+				</h3custom>
+			</div>
+		</div>
 
-      <div class="row">
-	<h3custom style="text-align:center;">
-	  <a target="_blank" href="https://arxiv.org/abs/2401.08559"> <button type="button" class="btn btn-primary btn-lg"> Paper </button></a>
-	  <!-- <a target="_blank" href="https://github.com/Mathux/STMC"> <button type="button" class="btn btn-primary btn-lg"> Code </button></a> -->
-	  <button type="button" class="btn btn-secondary btn-lg"> Code </button>
-	  <button type="button" class="btn btn-secondary btn-lg"> Demo </button>
-	  <!-- <a target="_blank" href="https://huggingface.co/spaces/Mathux/STMC"> <button type="button" class="btn btn-primary btn-lg"> Demo </button></a> -->
-	  <!-- <a target="_blank" href="stmc_poster.pdf"> <button type="button" class="btn btn-primary btn-lg"> Poster </button></a> -->
-	  <a href="#bibtex"> <button type="button" class="btn btn-primary btn-lg"> BibTex </button></a>
-	</h3custom>
-      </div>
-    </div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h3>Abstract</h3>
+					<p style="font-size: 120%; text-align: justify">
+						Recent advances in generative modeling have led to promising
+						progress on synthesizing 3D human motion from text, with methods
+						that can generate character animations from short prompts and
+						specified durations. However, using a single text prompt as input
+						lacks the fine-grained control needed by animators, such as
+						composing multiple actions and defining precise durations for parts
+						of the motion. To address this, we introduce the new problem of
+						timeline control for text-driven motion synthesis, which provides an
+						intuitive, yet fine-grained, input interface for users. Instead of a
+						single prompt, users can specify a multi-track timeline of multiple
+						prompts organized in temporal intervals that may overlap. This
+						enables specifying the exact timings of each action and composing
+						multiple actions in sequence or at overlapping intervals. To
+						generate composite animations from a multi-track timeline, we
+						propose a new test-time denoising method. This method can be
+						integrated with any pre-trained motion diffusion model to synthesize
+						realistic motions that accurately reflect the timeline. At every
+						step of denoising, our method processes each timeline interval (text
+						prompt) individually, subsequently aggregating the predictions with
+						consideration for the specific body parts engaged in each action.
+						Experimental comparisons and ablations validate that our method
+						produces realistic motions that respect the semantics and timing of
+						given text prompts.
+					</p>
+				</div>
+			</div>
 
-    <div class="container">
-      <div class="row">
-	<div class="col-md-12">
-          <h3>Abstract</h3>
-          <p style="font-size: 120%;text-align: justify;">
-	    Recent advances in generative modeling have led to promising progress on synthesizing 3D human motion from text,
-	    with methods that can generate character animations from short prompts and specified durations.
-	    However, using a single text prompt as input lacks the fine-grained control needed by animators,
-	    such as composing multiple actions and defining precise durations for parts of the motion.
-	    To address this, we introduce the new problem of timeline control for text-driven motion synthesis,
-	    which provides an intuitive, yet fine-grained, input interface for users.
-	    Instead of a single prompt, users can specify a multi-track timeline of multiple prompts organized in temporal intervals that may overlap.
-	    This enables specifying the exact timings of each action and composing multiple actions in sequence or at overlapping intervals.
-	    To generate composite animations from a multi-track timeline, we propose a new test-time denoising method.
-	    This method can be integrated with any pre-trained motion diffusion model to synthesize realistic motions that accurately reflect the timeline.
-	    At every step of denoising, our method processes each timeline interval (text prompt) individually,
-	    subsequently aggregating the predictions with consideration for the specific body parts engaged in each action.
-	    Experimental comparisons and ablations validate that our method produces realistic motions that respect the semantics and timing of given text prompts.
-	  </p>
-	</div>
-      </div>
-
-      <!--
+			<!--
       <div class="row">
 	<div class="col-md-12">
           <h3>Demo</h3>
@@ -131,42 +201,49 @@
 
       -->
 
-      <div class="row">
-	<div class="col-md-12">
-          <h3>Video</h3>
-	  <center>
-	    <iframe src="https://www.youtube.com/embed/_UXhDp0o4HI" width="850" height="480" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-	  </center>
-	</div>
-      </div>
+			<div class="row">
+				<div class="col-md-12">
+					<h3>Video</h3>
+					<center>
+						<iframe
+							src="https://www.youtube.com/embed/_UXhDp0o4HI"
+							width="850"
+							height="480"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen
+						></iframe>
+					</center>
+				</div>
+			</div>
 
-      <br>
+			<br />
 
-      <div class="row">
-	<div class="col-md-12">
-	  <h3 id="bibtex">Bibtex</h3>
-          <p style="font-size: 120%;text-align: justify;">
-	    If you find this project useful for your research, please cite
-	  </p>
-	  <div class="card">
-	    <div class="card-block">
-	      <pre class="card-text clickselect">
-@article{petrovich24stmc,
+			<div class="row">
+				<div class="col-md-12">
+					<h3 id="bibtex">Bibtex</h3>
+					<p style="font-size: 120%; text-align: justify">
+						If you find this project useful for your research, please cite
+					</p>
+					<div class="card">
+						<div class="card-block">
+							<pre class="card-text clickselect">
+@inproceedings{petrovich24stmc,
     title     = {{STMC}: Multi-Track Timeline Control for Text-Driven 3D Human Motion Generation},
     author    = {Petrovich, Mathis and Litany, Or and Iqbal, Umar and Black, Michael J. and Varol, G{\"u}l and Peng, Xue Bin and Rempe, Davis},
-    journal   = {arXiv:2401.08559},
+    booktitle = {CVPR Workshop on Human Motion Generation},
     year      = {2024}
-}</pre>
-	    </div>
-	  </div>
-	</div>
-      </div>
+}</pre
+							>
+						</div>
+					</div>
+				</div>
+			</div>
 
-      <br>
-    </div>
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
-  </body>
+			<br />
+		</div>
+		<!-- Bootstrap core JS-->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+		<!-- Core theme JS-->
+		<script src="js/scripts.js"></script>
+	</body>
 </html>
