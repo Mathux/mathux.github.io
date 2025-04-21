@@ -139,6 +139,52 @@
 
         </div>
       </div>
+      <br>
+      <div class="row">
+        <div class="col-md-12">
+          <h3 id="thesis">Thesis</h3>
+
+	  <!-- PhD Thesis -->
+	 <div class="row">
+            <div class="col-xs-10 col-sm-4 col-md-4">
+              <a href="https://pastel.hal.science/tel-04984194">
+		<img class="img-thumbnail mb-3" src="resrc/PhD_miniature.png" alt="Natural language control for 3D human motion synthesis">
+              </a>
+            </div>
+            <div class="col-xs-12 col-sm-8 col-md-8" style="font-size: 120%;">
+              <strong>Natural language control for 3D human motion synthesis
+	      </strong><br>
+	      <u>Mathis Petrovich</u><br>
+	      Defended in April 2024
+	      <br>
+              <a target="_blank" href="https://pastel.hal.science/tel-04984194"> <button type="button" class="btn btn-primary btn-sm"> PDF </button></a>
+              <a target="_blank" href="https://www.youtube.com/watch?v=yi5-d-wEtyI"> <button type="button" class="btn btn-primary btn-sm"> YouTube </button></a>
+              <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#bibtexPhD">BibTex</button>
+              <div id="bibtexPhD" class="collapse">
+		<pre><tt>@phdthesis{petrovich_mathis_phd,
+  title = {{Natural language control for 3D human motion synthesis}},
+  author = {Petrovich, Mathis},
+  url = {https://pastel.hal.science/tel-04984194},
+  number = {2024ENPC0013},
+  school = {{{\'E}cole des Ponts ParisTech}},
+  year = {2024},
+  month = Apr,
+  type = {Theses},
+  pdf = {https://pastel.hal.science/tel-04984194v1/file/TH2024ENPC0013.pdf},
+}</tt></pre>
+              </div>
+              <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#abstractPhD">Abstract</button>
+              <div id="abstractPhD" class="collapse">
+		<p class="bg-light">
+3D human motions are at the core of many applications such as the film industry, healthcare, augmented reality, virtual reality and video games. However, these applications often rely on expensive and time-consuming motion capture data.The goal of this thesis is to explore generative models as an alternative route to obtain 3D human motions. More specifically, our aim is to allow a natural language interface as a means to control the generation process. To this end, we develop a series of models that synthesize realistic and diverse motions following the semantic inputs.In our first chapter, we address the challenge of generating human motion sequences conditioned on specific action categories. We introduce ACTOR, a conditional variational autoencoder (VAE) that learns an action-aware latent representation for human motions. We show significant gains over existing methods thanks to our new Transformer-based VAE formulation, encoding and decoding SMPL pose sequences through a single motion-level embedding.In the second chapter, we go beyond categorical actions, and dive into the task of synthesizing diverse 3D human motions from textual descriptions allowing a larger vocabulary and potentially more fine-grained control. Our work stands out from previous research by not deterministically generating a single motion sequence, but by synthesizing multiple, varied sequences from a given text.We propose TEMOS, building on our VAE-based ACTOR architecture, but this time integrating a pretrained text encoder to handle large-vocabulary natural language inputs.In the third chapter, we address the adjacent task of text-to-3D human motion retrieval, where the goal is to search in a motion collection by querying via text. We introduce a simple yet effective approach, named TMR, building on our earlier model TEMOS, by integrating a contrastive loss to enhance the structure of the cross-modal latent space. Our findings emphasize the importance of retaining the motion generation loss in conjunction with contrastive training for improved results. We establish a new evaluation benchmark and conduct analyses on several protocols.In the fourth chapter, we introduce a new problem termed as "multi-track timeline control" for text-driven 3D human motion synthesis. Instead of a single textual prompt, users can organize multiple prompts in temporal intervals that may overlap. We introduce STMC, a test-time denoising method that can be integrated with any pre-trained motion diffusion model. Our evaluations demonstrate that our method generates motions that closely match the semantic and temporal aspects of the input timelines.In summary, our contributions in this thesis are as follows: (i) we develop a generative variational autoencoder, ACTOR, for action-conditioned generation of human motion sequences, (ii) we introduce TEMOS, a text-conditioned generative model that synthesizes diverse human motions from textual descriptions, (iii) we present TMR, a new approach for text-to-3D human motion retrieval, (iv) we propose STMC, a method for timeline control in text-driven motion synthesis, enabling the generation of detailed and complex motions.
+		</p>
+              </div>
+              <div style="height:30px;"></div>
+            </div>
+         </div>
+	</div>
+      </div>
+
       <div class="row">
         <div class="col-md-12">
           <h3>Publications</h3>
@@ -527,50 +573,6 @@ Our goal is to synthesize 3D human motions given textual inputs describing simul
 
       <div class="row">
         <div class="col-md-12">
-          <h3>Thesis</h3>
-
-	  <!-- PhD Thesis -->
-	 <div class="row">
-            <div class="col-xs-10 col-sm-4 col-md-4">
-              <a href="https://pastel.hal.science/tel-04984194">
-		<img class="img-thumbnail mb-3" src="resrc/PhD_miniature.png" alt="Natural language control for 3D human motion synthesis">
-              </a>
-            </div>
-            <div class="col-xs-12 col-sm-8 col-md-8" style="font-size: 120%;">
-              <strong>Natural language control for 3D human motion synthesis
-	      </strong><br>
-	      <u>Mathis Petrovich</u><br>
-	      Defended in April 2024
-	      <br>
-              <a target="_blank" href="https://pastel.hal.science/tel-04984194"> <button type="button" class="btn btn-primary btn-sm"> PDF </button></a>
-              <a target="_blank" href="https://www.youtube.com/watch?v=yi5-d-wEtyI"> <button type="button" class="btn btn-primary btn-sm"> YouTube </button></a>
-              <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#bibtexPhD">BibTex</button>
-              <div id="bibtexPhD" class="collapse">
-		<pre><tt>@phdthesis{petrovich_mathis_phd,
-  title = {{Natural language control for 3D human motion synthesis}},
-  author = {Petrovich, Mathis},
-  url = {https://pastel.hal.science/tel-04984194},
-  number = {2024ENPC0013},
-  school = {{{\'E}cole des Ponts ParisTech}},
-  year = {2024},
-  month = Apr,
-  type = {Theses},
-  pdf = {https://pastel.hal.science/tel-04984194v1/file/TH2024ENPC0013.pdf},
-}</tt></pre>
-              </div>
-              <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="collapse" data-bs-target="#abstractPhD">Abstract</button>
-              <div id="abstractPhD" class="collapse">
-		<p class="bg-light">
-3D human motions are at the core of many applications such as the film industry, healthcare, augmented reality, virtual reality and video games. However, these applications often rely on expensive and time-consuming motion capture data.The goal of this thesis is to explore generative models as an alternative route to obtain 3D human motions. More specifically, our aim is to allow a natural language interface as a means to control the generation process. To this end, we develop a series of models that synthesize realistic and diverse motions following the semantic inputs.In our first chapter, we address the challenge of generating human motion sequences conditioned on specific action categories. We introduce ACTOR, a conditional variational autoencoder (VAE) that learns an action-aware latent representation for human motions. We show significant gains over existing methods thanks to our new Transformer-based VAE formulation, encoding and decoding SMPL pose sequences through a single motion-level embedding.In the second chapter, we go beyond categorical actions, and dive into the task of synthesizing diverse 3D human motions from textual descriptions allowing a larger vocabulary and potentially more fine-grained control. Our work stands out from previous research by not deterministically generating a single motion sequence, but by synthesizing multiple, varied sequences from a given text.We propose TEMOS, building on our VAE-based ACTOR architecture, but this time integrating a pretrained text encoder to handle large-vocabulary natural language inputs.In the third chapter, we address the adjacent task of text-to-3D human motion retrieval, where the goal is to search in a motion collection by querying via text. We introduce a simple yet effective approach, named TMR, building on our earlier model TEMOS, by integrating a contrastive loss to enhance the structure of the cross-modal latent space. Our findings emphasize the importance of retaining the motion generation loss in conjunction with contrastive training for improved results. We establish a new evaluation benchmark and conduct analyses on several protocols.In the fourth chapter, we introduce a new problem termed as "multi-track timeline control" for text-driven 3D human motion synthesis. Instead of a single textual prompt, users can organize multiple prompts in temporal intervals that may overlap. We introduce STMC, a test-time denoising method that can be integrated with any pre-trained motion diffusion model. Our evaluations demonstrate that our method generates motions that closely match the semantic and temporal aspects of the input timelines.In summary, our contributions in this thesis are as follows: (i) we develop a generative variational autoencoder, ACTOR, for action-conditioned generation of human motion sequences, (ii) we introduce TEMOS, a text-conditioned generative model that synthesizes diverse human motions from textual descriptions, (iii) we present TMR, a new approach for text-to-3D human motion retrieval, (iv) we propose STMC, a method for timeline control in text-driven motion synthesis, enabling the generation of detailed and complex motions.
-		</p>
-              </div>
-              <div style="height:30px;"></div>
-            </div>
-         </div>
-	</div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
           <h3> Teaching </h3>
 	  <ul style="padding-left:0; list-style-type:none;font-size: 120%;">
 	    <li style="margin:1em 0"><b>Object recognition and computer vision (RecVis MVA)</b> (2021 - 2024)
@@ -589,24 +591,22 @@ Our goal is to synthesize 3D human motions given textual inputs describing simul
 	  </ul>
         </div>
       </div>
-
+      </div>
       <div class="row">
         <div class="col-md-12">
           <h3>Miscellaneous</h3>
 	  <ul style="padding-left:0; list-style-type:none;font-size: 120%;">
 	    <li style="margin:1em 0"><b>Reviewer</b>
 	      <ul style="list-style-type:circle;">
-		<li> <a href="https://eg2024.cyens.org.cy/">Eurographics</a> 2024 </li>
-		<li> <a href="https://3dvconf.github.io/2024/">International Conference on 3D Vision (3DV)</a> 2024 </li>
-		<li> <a href="https://iccv2023.thecvf.com/">International Conference on Computer Vision (ICCV)</a> 2023 </li>
-		<li> <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34/">Transactions on Pattern Analysis and Machine Intelligence (TPAMI)</a> 2023 </li>
-		<li> <a href="https://www.springer.com/journal/11263/">International Journal of Computer Vision (IJCV)</a> 2023 </li>
-		<li> <a href="https://s2023.siggraph.org">SIGGRAPH</a> 2023 </li>
-		<li> <a href="https://cvpr2023.thecvf.com">Computer Vision and Pattern Recognition (CVPR)</a> 2023 (Outstanding Reviewer), 2024 </li>
-		<li> <a href="https://www.springer.com/journal/11263/">International Journal of Computer Vision (IJCV)</a> 2022 </li>
-		<li> <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34/">Transactions on Pattern Analysis and Machine Intelligence (TPAMI)</a> 2022 </li>
-		<li> <a href="https://eccv2022.ecva.net/">European Conference on Computer Vision (ECCV)</a> 2022 </li>
-		<li> <a href="https://www.journals.elsevier.com/computers-and-graphics">Computers & Graphics</a> 2021 </li>
+		<li> <a href="https://cvpr2023.thecvf.com">Computer Vision and Pattern Recognition (CVPR)</a></li>
+		<li> <a href="https://iccv2023.thecvf.com/">International Conference on Computer Vision (ICCV)</a></li>
+		<li> <a href="https://eccv2022.ecva.net/">European Conference on Computer Vision (ECCV)</a></li>
+		<li> <a href="https://s2023.siggraph.org">SIGGRAPH</a></li>
+		<li> <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34/">Transactions on Pattern Analysis and Machine Intelligence (TPAMI)</a></li>
+		<li> <a href="https://www.springer.com/journal/11263/">International Journal of Computer Vision (IJCV)</a></li>
+		<li> <a href="https://3dvconf.github.io/2024/">International Conference on 3D Vision (3DV)</a></li>
+		<li> <a href="https://eg2024.cyens.org.cy/">Eurographics</a></li>
+		<li> <a href="https://www.journals.elsevier.com/computers-and-graphics">Computers & Graphics</a></li>
 	      </ul>
 	    </li>
 	    <li style="margin:1em 0"><b>Rubik's cube</b>
