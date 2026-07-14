@@ -1,140 +1,182 @@
-/* Inspired from
- - https://vobecant.github.io/
- -
-*/
+/* Mathis Petrovich — personal site styles.
+   Bootstrap 5 is loaded from the CDN; this file adds the custom theme,
+   a light visual refresh, and automatic dark mode via CSS variables.
+   Inspired from https://vobecant.github.io/ */
 
-/* Space out content a bit */
+:root {
+  color-scheme: light dark;
+
+  /* palette — light */
+  --bg: #ffffff;
+  --text: #24292f;
+  --muted: #6b7280;
+  --heading: #1f2328;
+  --link: #2a6496;
+  --link-hover: #0b5ed7;
+  --border: #e2e6ea;
+  --card-bg: #ffffff;
+  --card-border: #e6e9ee;
+  --card-shadow: 0 1px 3px rgba(16, 24, 40, .06), 0 1px 2px rgba(16, 24, 40, .04);
+  --card-shadow-hover: 0 12px 24px rgba(16, 24, 40, .10), 0 4px 8px rgba(16, 24, 40, .06);
+  --panel-bg: #f6f8fa;
+  --thumb-bg: #ffffff;
+  --thumb-border: #e6e9ee;
+
+  /* keep the site's blue as the Bootstrap primary */
+  --bs-primary-rgb: 42, 100, 150;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1216;
+    --text: #d5dae1;
+    --muted: #9aa4b2;
+    --heading: #e8ecf1;
+    --link: #7fb2e8;
+    --link-hover: #a9cdf3;
+    --border: #262c36;
+    --card-bg: #161b22;
+    --card-border: #262c36;
+    --card-shadow: 0 1px 3px rgba(0, 0, 0, .5);
+    --card-shadow-hover: 0 12px 28px rgba(0, 0, 0, .55);
+    --panel-bg: #12171e;
+    --thumb-bg: #0c1015;
+    --thumb-border: #2a313c;
+  }
+}
+
+/* ---------- base ---------- */
 body {
   padding-top: 20px;
   padding-bottom: 20px;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.row,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-bottom: 5px;
-}
+img { max-width: 100%; height: auto; }
 
-/* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
+/* ---------- headings ---------- */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6, .h3custom {
   margin-top: 0;
-  margin-bottom: 0;
-  line-height: 40px;
-  padding-bottom: 19px;
-}
-
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
-}
-
-.container-narrow > hr {
-  margin: 20px 0;
-}
-
-/* Main marketing message and sign up button */
-.container .jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-  padding-left: 20px;
-  padding: 30px;
-}
-
-.jumbotron .btn {
-  font-size: 21px;
-  padding: 14px 24px;
-}
-
-.row p + h3 {
-  margin-top: 28px;
-}
-
-div.row h3 {
-  padding-bottom: 5px;
-  border-bottom: 1px solid #ccc;
-}
-
-.row-margin{
-  margin-top: 30px;
-  margin-bottom: 30px
-}
-
-.readme h1 {
-  display: none;
-}
-
-.vcenter {
-    display: inline-block;
-    vertical-align: middle;
-    float: none;
-}
-
-h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1, h3custom, .h3custom {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
+  margin-bottom: .5rem;
+  font-weight: 700;
   line-height: 1.2;
-  color: #343a40;
+  color: var(--heading);
 }
 
+h1, .h1 { font-size: calc(1.725rem + 3.7vw); }
+@media (min-width: 1200px) { h1, .h1 { font-size: 4rem; } }
 
-/* Make the masthead heading the same height as the navigation */
-h3custom, .h3custom {
-    border: none;
-    margin-bottom: 0rem;
-    /*font-size: 1.5em;*/
+/* subtitle under the name (previously a non-standard <h3custom> element) */
+.h3custom {
+  border: none;
+  margin-bottom: 0;
+  font-weight: 600;
+  color: var(--muted);
+  font-size: calc(1.325rem + 0.9vw);
+}
+@media (min-width: 1200px) { .h3custom { font-size: 2rem; } }
+
+/* section headers */
+.row p + h3 { margin-top: 28px; }
+div.row h3 {
+  padding-bottom: .35rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
 }
 
+/* ---------- links ---------- */
+a { color: var(--link); text-decoration: none; }
+a:hover, a:focus { color: var(--link-hover); text-decoration: underline; }
 
-h1, .h1 {
-  font-size: calc(1.725rem + 3.7vw);
+/* ---------- content utilities (replace repeated inline styles) ---------- */
+.prose { font-size: 120%; text-align: justify; }
+.fs-120 { font-size: 120%; }
+.list-plain { list-style: none; padding-left: 0; }
+
+.news-list { list-style: none; padding-left: 0; font-size: 120%; }
+.news-badge { display: inline-block; width: 85px; }
+
+/* ---------- publication / project cards ---------- */
+.pub {
+  margin: 0 0 1.25rem;            /* cancels Bootstrap's negative row margins */
+  padding: 1.1rem 1.25rem .35rem;
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  transition: box-shadow .2s ease, transform .2s ease;
+}
+.pub:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--card-shadow-hover);
 }
 
+/* thumbnails — natural sizes kept, just framed + a subtle hover cue */
+.img-thumbnail {
+  background-color: var(--thumb-bg);
+  border: 1px solid var(--thumb-border);
+  border-radius: 8px;
+  transition: transform .2s ease;
+}
+.pub:hover .img-thumbnail { transform: scale(1.02); }
 
-a {
-    color: #2a6496;
-    text-decoration: none;
-    /* color: #428bca; */
+/* abstract panels (Bootstrap .bg-light) */
+.bg-light {
+  background-color: var(--panel-bg) !important;
+  color: var(--text);
+  border-radius: 8px;
+  padding: 1rem !important;
 }
 
-a:hover, a:focus {
-    text-decoration: underline;
+/* BibTeX / code blocks */
+pre {
+  margin-top: .5rem;
+  padding: .85rem 1rem;
+  background: var(--panel-bg);
+  color: var(--text);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  overflow-x: auto;
 }
+pre tt, pre code { color: var(--text); }
 
-/* font-weight: bold; */
+/* ---------- buttons (keep the site blue in both themes) ---------- */
 .btn-primary {
-    /* color: #2a6496; */
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #2a6496;
+  --bs-btn-border-color: #2a6496;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #21507a;
+  --bs-btn-hover-border-color: #1d476c;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #1d476c;
+  --bs-btn-active-border-color: #1a4062;
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #2a6496;
+  --bs-btn-disabled-border-color: #2a6496;
+  margin: 0 .15rem .35rem 0;
 }
 
-/* 0d6efd */
-.btn-primary {
-    --bs-btn-color: #fff;
-    --bs-btn-bg: #2a6496;
-    --bs-btn-border-color: #2a6496;
-    --bs-btn-hover-color: #fff;
-    --bs-btn-hover-bg: #0b5ed7;
-    --bs-btn-hover-border-color: #0a58ca;
-    --bs-btn-focus-shadow-rgb: 49,132,253;
-    --bs-btn-active-color: #fff;
-    --bs-btn-active-bg: #0a58ca;
-    --bs-btn-active-border-color: #0a53be;
-    --bs-btn-active-shadow: inset 0 3px 5pxrgba(0, 0, 0, 0.125);
-    --bs-btn-disabled-color: #fff;
-    --bs-btn-disabled-bg: #2a6496;
-    --bs-btn-disabled-border-color: #2a6496;
+/* "Show more" news toggle (Bootstrap has no .btn-default in v5) */
+.btn-default {
+  --bs-btn-color: var(--link);
+  --bs-btn-border-color: var(--card-border);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--link);
+  --bs-btn-hover-border-color: var(--link);
+  border: 1px solid var(--card-border);
 }
 
+/* ---------- profile photo ---------- */
+.profile-img { width: 100%; max-width: 250px; border-radius: 20px; }
 
-:root {
-    --bs-primary-rgb: 42, 100, 150;
-}
+/* ---------- footer ---------- */
+footer { color: var(--muted); }
+footer a { color: var(--link); }
