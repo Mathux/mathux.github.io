@@ -97,11 +97,15 @@ a:hover, a:focus { color: var(--link-hover); text-decoration: underline; }
 
 /* ---------- content utilities (replace repeated inline styles) ---------- */
 .prose { font-size: 120%; text-align: justify; }
+/* justified text produces large gaps in narrow columns */
+@media (max-width: 575.98px) { .prose { text-align: left; } }
 .fs-120 { font-size: 120%; }
 .list-plain { list-style: none; padding-left: 0; }
 
 .news-list { list-style: none; padding-left: 0; font-size: 120%; }
-.news-badge { display: inline-block; width: 85px; }
+/* hanging indent so wrapped news lines align with the text, not the badge */
+.news-list li { padding-left: 95px; text-indent: -95px; margin-bottom: .2rem; }
+.news-badge { display: inline-block; width: 85px; margin-right: 6px; text-indent: 0; }
 
 /* ---------- publication / project cards ---------- */
 .pub {
